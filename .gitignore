@@ -1,7 +1,0 @@
-build/
-sdkconfig
-sdkconfig.old
-.vscode/arduino.json
-.vscode/arduino.json
-.vscode/settings.json
-.vscode/c_cpp_properties.json
