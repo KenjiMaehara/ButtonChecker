@@ -575,13 +575,14 @@ void setup() {
   readFile(SPIFFS,"/log_test.txt");
  //multiTaskSetup();
 
-  pinMode(D7, INPUT_PULLUP);
+  pinMode(D7, INPUT);
   delay(100);
 
   int longPushCount = 0;
   while(digitalRead(D7)==HIGH)
   {
     longPushCount++;
+    Serial.println("D7 is HIGH");
     delay(1000);
     if (longPushCount > 5)
     {
