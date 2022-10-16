@@ -8,9 +8,7 @@
 
 #include <DS3232RTC.h>
 
-#include <WiFiClientSecure.h>
-#include <MQTTClient.h>
-#include <ArduinoJson.h>
+
 
 
 
@@ -53,19 +51,7 @@ int gRecieveCount = 0;
 String gSerialName;
 String gSigName;
 
-const char* AWS_IOT_PUBLISH_TOPIC = "node/airsensor";
 
-const int WIFI_TIMEOUT_MS = 20000;
-const int MQTT_TIMEOUT_MS = 5000;
-
-WiFiClientSecure net = WiFiClientSecure();
-MQTTClient client = MQTTClient(256);
-//CRC8 crc;
-//ST7032_asukiaaa lcd;
-
-double temperature;
-double humidity;
-uint32_t particle;
 
 void listDir(fs::FS &fs, const char * dirname, uint8_t levels){
     Serial.printf("Listing directory: %s\r\n", dirname);
