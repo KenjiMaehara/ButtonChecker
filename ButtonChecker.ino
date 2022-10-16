@@ -7,6 +7,9 @@
 #include "FS.h"
 #include "SPIFFS.h"	// ①ライブラリを読み込み
 
+#include "InputChecker.h"
+
+
 #define FORMAT_SPIFFS_IF_FAILED true
 
 

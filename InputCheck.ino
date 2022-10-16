@@ -1,7 +1,7 @@
 #include "FS.h"
 #include "SPIFFS.h"	// ①ライブラリを読み込み
 
-
+#include "InputChecker.h"
 
 
 
