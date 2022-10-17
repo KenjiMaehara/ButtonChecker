@@ -37,7 +37,7 @@ int gRecieveCount = 0;
 
 String gSerialName;
 String gSigName;
-
+String gAWS_topic;
 
 
 void listDir(fs::FS &fs, const char * dirname, uint8_t levels){

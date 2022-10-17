@@ -4,7 +4,9 @@
 
 #include "iotSecrets.h"
 
-const char* AWS_IOT_PUBLISH_TOPIC = "node/airsensor";
+#include "aws_iot.h"
+
+const char* AWS_IOT_PUBLISH_TOPIC = "topic/";
 
 const int WIFI_TIMEOUT_MS = 20000;
 const int MQTT_TIMEOUT_MS = 5000;
@@ -102,7 +104,7 @@ void publishMessage()
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer); // print to client
 
-  bool published = client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
+  bool published = client.publish(gAWS_topic.c_str(), jsonBuffer);
   if(published) {
     Serial.println("Publish Success");
   }
@@ -141,7 +143,7 @@ void publishMessage_alart(int alart_type,int onoff_event)
   char jsonBuffer[512];
   serializeJson(doc, jsonBuffer); // print to client
 
-  bool published = client.publish(AWS_IOT_PUBLISH_TOPIC, jsonBuffer);
+  bool published = client.publish(gAWS_topic.c_str(), jsonBuffer);
   if(published) {
     Serial.println("Publish Success");
   }

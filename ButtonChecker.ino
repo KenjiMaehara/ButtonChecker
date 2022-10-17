@@ -9,6 +9,8 @@
 
 #include "InputChecker.h"
 
+#include "aws_iot.h"
+
 
 #define FORMAT_SPIFFS_IF_FAILED true
 
@@ -51,6 +53,8 @@ void setup() {
     Serial.println("An Error has occurred while mounting SPIFFS");
     return;
   }
+
+
 
 // put your setup code here, to run once:
   Serial.begin(115200);
@@ -108,7 +112,12 @@ void setup() {
     Serial.print("Serial name:");
     Serial.println(gSerialName);
     Serial.println("");
-    
+
+    //gAWS_topic = "topic/" + gSerialName;
+    gAWS_topic = AWS_IOT_PUBLISH_TOPIC + gSerialName;
+    Serial.println(gAWS_topic);
+    Serial.println("");
+
     Serial.println("Connected to the WiFi network!");
     configTime(9 * 3600L, 0, "ntp.nict.jp", "time.google.com", "ntp.jst.mfeed.ad.jp");//NTPの設定
 
